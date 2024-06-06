@@ -27,17 +27,14 @@ def get_metrics(metrics):
     return response.json()
 
 # parse JSON response
-def parse_json_response(data, parse_dict):
-    parsed_data = {}
-    if len(parse_dict['metric_list']) == 0:
-        for entry in data['data']['result']:
-            new_item = entry[parse_dict['entry']]
-        parsed_data[parse_dict['entry']] = new_item
-    else:
+def parse_json_response_nc(data, parse_dict):
+    parsed_data = []
+    for entry in data[parse_dict['entry']]:
+        parsed_event = {}
         for item in parse_dict['metric_list']:
-            for entry in data['data']['result']:
-                new_item = entry[parse_dict['entry']][item]
-            parsed_data[item] = new_item
+            new_item = entry[item]
+            parsed_event[item] = new_item
+        parsed_data.append(parsed_event)
     return parsed_data
 
 
@@ -45,24 +42,21 @@ def parse_json_response(data, parse_dict):
 load_dotenv('secrets_nc.env')
 
 # import inputs
-# input_dict = json.load(open('inputs.json'))
+input_dict = json.load(open('inputs_nc.json'))
 
 #Retrieve JSON parsing structure based on metric
-# parse_dict = json.load(open(input_dict['parse_profile'] + '.json'))
+parse_dict = json.load(open(input_dict['metrics'] + '.json'))
 
 # main
 # build query string + args & urlencode
-# metric_string = input_dict['metrics'] + '{' + 'acn_id="' + input_dict['acn'] + '", acc_id="' + input_dict['acc'] + '"}'
-# arguments = {'startDate': input_dict['time_start'], 'endDate': input_dict['time_end'], 'step': input_dict['step']}
-# encoded_url = encode_url(metric_string, arguments)
-
-metrics = 'net_device_metrics'
+metric_string = input_dict['metrics'] + '/?limit=' + input_dict['limit']
 
 # send GET resquest to monitoring.powerflex.io
-data = get_metrics(metrics)
+data = get_metrics(metric_string)
 
 # # Parse the JSON response
-# parsed_data = parse_json_response(data, parse_dict)
+parsed_data = parse_json_response_nc(data, parse_dict)
 
 # # Print the parsed data
 print(json.dumps(data, indent=4))
+print(json.dumps(parsed_data, indent=4))

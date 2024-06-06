@@ -1,0 +1,4 @@
+{
+    "entry": "data",
+    "metric_list": ["created_at", "created_at_timeuuid", "detected_at", "friendly_info", "type", "router"]
+}
