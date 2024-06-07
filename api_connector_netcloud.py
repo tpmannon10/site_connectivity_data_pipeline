@@ -49,9 +49,10 @@ def pull_router_url(alert_dict):
 def acn_acc_extract(router_details):
     for router in router_details:
         separate_out_acn = router['description'].split('-')
-        separate_out_acc = separate_out_acn[2].split(' ')
-        router['acn'] = separate_out_acn[1]
-        router['acc'] = separate_out_acc[0]
+        if len(separate_out_acn) > 2:
+            separate_out_acc = separate_out_acn[2].split(' ')
+            router['acn'] = separate_out_acn[1]
+            router['acc'] = separate_out_acc[0]
     return router_details
 
 # extract additional details from individual routers
