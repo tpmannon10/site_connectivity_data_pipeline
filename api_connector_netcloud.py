@@ -58,5 +58,4 @@ data = get_metrics(metric_string)
 parsed_data = parse_json_response_nc(data, parse_dict)
 
 # # Print the parsed data
-print(json.dumps(data, indent=4))
 print(json.dumps(parsed_data, indent=4))
