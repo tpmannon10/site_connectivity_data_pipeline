@@ -37,7 +37,43 @@ def parse_json_response_nc(data, parse_dict):
         parsed_data.append(parsed_event)
     return parsed_data
 
+# Make list of router urls
+def pull_router_url(alert_dict):
+    router_urls = []
+    for item in alert_dict:
+        router = item['router']
+        router_urls.append(router)
+    return router_urls
 
+# pull out acn-acc from description
+def acn_acc_extract(router_details):
+    for router in router_details:
+        separate_out_acn = router['description'].split('-')
+        separate_out_acc = separate_out_acn[2].split(' ')
+        router['acn'] = separate_out_acn[1]
+        router['acc'] = separate_out_acc[0]
+    return router_details
+
+# extract additional details from individual routers
+def grab_router_details(router_urls, parse_dict):
+    headers = get_netcloud_auth()
+    router_details = []
+    for site in router_urls:
+        router_full_details = requests.get(site, headers=headers).json()
+        parsed_event = {}
+        for item in parse_dict['router_list']:
+            parsed_event[item] = router_full_details[item]
+        router_details.append(parsed_event)
+    router_details = acn_acc_extract(router_details)
+    return router_details
+
+# router-specific details added to alert details
+def combine_alert_with_router(parsed_data, router_details):
+    for alert, router in zip(parsed_data, router_details):
+        for item in router.keys():
+            alert[item] = router[item]
+    return parsed_data
+        
 # Load environment variables from a .env file
 load_dotenv('secrets_nc.env')
 
@@ -57,5 +93,12 @@ data = get_metrics(metric_string)
 # # Parse the JSON response
 parsed_data = parse_json_response_nc(data, parse_dict)
 
-# # Print the parsed data
+# obtain router-specific urls
+router_urls = pull_router_url(parsed_data)
+
+# go get the router specifics
+router_details = grab_router_details(router_urls, parse_dict)
+
+# combine alert info with router-specific info
+parsed_data = combine_alert_with_router(parsed_data, router_details)
 print(json.dumps(parsed_data, indent=4))
