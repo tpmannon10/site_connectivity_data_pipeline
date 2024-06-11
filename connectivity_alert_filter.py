@@ -1,7 +1,4 @@
-import requests
-from urllib.parse import urlencode
 from datetime import datetime
-import os
 import json
 
 # open alert output json
