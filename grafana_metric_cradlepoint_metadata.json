@@ -1,0 +1,8 @@
+{
+    "carrier": "Verizon ",
+    "rf_band": "Band 13",
+    "rf_channel": "5230",
+    "cell_id": "12584449 (0xc00601)",
+    "date_time": "2024-06-11T11:18:02",
+    "metric": "cradlepoint_metadata"
+}

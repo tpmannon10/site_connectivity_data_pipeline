@@ -1,5 +1,6 @@
 import requests
 from urllib.parse import urlencode
+from datetime import datetime
 from dotenv import load_dotenv
 import os
 import json
@@ -51,6 +52,15 @@ def parse_json_response(data, parse_dict):
             parsed_data[item] = new_item
     return parsed_data
 
+# create payload file
+def payload_file_gf(payload, out_file_name, out_file_metric):
+    payload["date_time"] = str(datetime.now().isoformat(timespec='seconds'))
+    payload["metric"] = out_file_metric
+    filename = out_file_name + out_file_metric + '.json'
+    json_object = json.dumps(payload, indent=4)
+    with open(filename, 'w') as outfile:
+        outfile.write(json_object)
+    return
 
 # Load environment variables from a .env file
 load_dotenv('secrets.env')
@@ -73,5 +83,5 @@ data = get_metrics(encoded_url)
 # # Parse the JSON response
 parsed_data = parse_json_response(data, parse_dict)
 
-# # Print the parsed data
-print(json.dumps(parsed_data, indent=4))
+# # Print the parsed data to output json
+payload_file_gf(parsed_data, input_dict["out_file"], input_dict["metrics"])
