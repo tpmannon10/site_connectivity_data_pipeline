@@ -1,6 +1,7 @@
 import requests
 from urllib.parse import urlencode
 from dotenv import load_dotenv
+from datetime import datetime
 import os
 import json
 
@@ -74,6 +75,23 @@ def combine_alert_with_router(parsed_data, router_details):
         for item in router.keys():
             alert[item] = router[item]
     return parsed_data
+
+# create payload dict
+def payload_dict(parsed_data):
+    payload = {"data": []}
+    for item in parsed_data:
+        payload["data"].append(item)
+    payload["date_time"] = str(datetime.now().isoformat(timespec='seconds'))
+    return payload
+
+# create payload file
+def payload_file(parsed_data, out_file_name):
+    payload = payload_dict(parsed_data)
+    filename = out_file_name + '.json'
+    json_object = json.dumps(payload, indent=4)
+    with open(filename, 'w') as outfile:
+        outfile.write(json_object)
+    return
         
 # Load environment variables from a .env file
 load_dotenv('secrets_nc.env')
@@ -102,4 +120,6 @@ router_details = grab_router_details(router_urls, parse_dict)
 
 # combine alert info with router-specific info
 parsed_data = combine_alert_with_router(parsed_data, router_details)
-print(json.dumps(parsed_data, indent=4))
+
+# print result to output json
+payload_file(parsed_data, input_dict["out_file"])

@@ -1,0 +1,75 @@
+{
+    "data": [
+        {
+            "created_at": "2024-06-11T17:58:25.979835+00:00",
+            "created_at_timeuuid": "337cf950-281c-11ef-922b-5eb76f4e1b1c",
+            "detected_at": "2024-06-11T17:58:24+00:00",
+            "friendly_info": "WiFi client \"8c:4b:14:33:8e:e8\" changed state to \"connected\".",
+            "type": "wifi_client_state_change",
+            "router": "https://www.cradlepointecm.com/api/v2/routers/3659492/",
+            "description": "pf-0084-06 ECH Los Gatos Doctor Lot",
+            "name": "IBR600C-38a",
+            "state": "online",
+            "state_updated_at": "2024-06-11T01:41:41.706723+00:00",
+            "acn": "0084",
+            "acc": "06"
+        },
+        {
+            "created_at": "2024-06-11T17:58:25.913926+00:00",
+            "created_at_timeuuid": "3372eaba-281c-11ef-96d5-9e4f213526ee",
+            "detected_at": "2024-06-11T17:58:24+00:00",
+            "friendly_info": "WiFi client \"8c:4b:14:33:8e:e8\" changed state to \"disconnected\".",
+            "type": "wifi_client_state_change",
+            "router": "https://www.cradlepointecm.com/api/v2/routers/3659492/",
+            "description": "pf-0084-06 ECH Los Gatos Doctor Lot",
+            "name": "IBR600C-38a",
+            "state": "online",
+            "state_updated_at": "2024-06-11T01:41:41.706723+00:00",
+            "acn": "0084",
+            "acc": "06"
+        },
+        {
+            "created_at": "2024-06-11T17:58:24.249477+00:00",
+            "created_at_timeuuid": "3274f130-281c-11ef-bcba-3674ac214bf2",
+            "detected_at": "2024-06-11T17:58:09+00:00",
+            "friendly_info": "The Internal 150M-D (SIM1) mdm on port Internal 1 has connected to the network.",
+            "type": "modem_wan_connected",
+            "router": "https://www.cradlepointecm.com/api/v2/routers/3659485/",
+            "description": "pf-0119-03 Rydell Northridge 010-2190",
+            "name": "IBR600C-41d",
+            "state": "online",
+            "state_updated_at": "2024-06-11T17:58:18.918550+00:00",
+            "acn": "0119",
+            "acc": "03"
+        },
+        {
+            "created_at": "2024-06-11T17:58:22.630835+00:00",
+            "created_at_timeuuid": "317df4fe-281c-11ef-8587-9acd9c540c0e",
+            "detected_at": "2024-06-11T17:58:20+00:00",
+            "friendly_info": "WiFi client \"8c:4b:14:33:8e:e8\" changed state to \"connected\".",
+            "type": "wifi_client_state_change",
+            "router": "https://www.cradlepointecm.com/api/v2/routers/3659492/",
+            "description": "pf-0084-06 ECH Los Gatos Doctor Lot",
+            "name": "IBR600C-38a",
+            "state": "online",
+            "state_updated_at": "2024-06-11T01:41:41.706723+00:00",
+            "acn": "0084",
+            "acc": "06"
+        },
+        {
+            "created_at": "2024-06-11T17:58:21.723667+00:00",
+            "created_at_timeuuid": "30f388be-281c-11ef-af6e-6eea7b4d7796",
+            "detected_at": "2024-06-11T17:58:19+00:00",
+            "friendly_info": "WiFi client \"8c:4b:14:33:8e:e8\" changed state to \"disconnected\".",
+            "type": "wifi_client_state_change",
+            "router": "https://www.cradlepointecm.com/api/v2/routers/3659492/",
+            "description": "pf-0084-06 ECH Los Gatos Doctor Lot",
+            "name": "IBR600C-38a",
+            "state": "online",
+            "state_updated_at": "2024-06-11T01:41:41.706723+00:00",
+            "acn": "0084",
+            "acc": "06"
+        }
+    ],
+    "date_time": "2024-06-11T10:58:36"
+}
