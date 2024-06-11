@@ -5,6 +5,6 @@
     "acc": "01",
     "time_start": "1717444160",
     "time_end": "1717487420",
-    "step": "15m",
+    "step": "5m",
     "out_file": "grafana_metric_"
 }
