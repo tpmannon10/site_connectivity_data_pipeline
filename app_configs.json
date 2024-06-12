@@ -22,5 +22,8 @@
         "step": "5m",
         "out_file": "grafana_metric_",
         "time_window_hrs": "24"
-    }
+    },
+    "alert_list": [
+        "modem_wan_connected"
+    ]
 }

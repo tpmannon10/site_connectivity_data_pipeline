@@ -26,7 +26,7 @@ def filtered_alerts_file(relevant_alerts, out_file_name):
 alerts = open_alerts('nc_alerts_update.json')
 
 # obtain alert filter
-alert_filter = open_alerts('alert_filter.json')
+alert_filter = open_alerts('app_configs.json')
 
 # filter out relevant alerts
 relevant_alerts = alert_filtering(alerts, alert_filter)
