@@ -1,5 +1,0 @@
-{
-    "metrics": "alerts",
-    "limit": "5",
-    "out_file": "nc_alerts_update"
-}

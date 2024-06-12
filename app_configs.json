@@ -24,6 +24,12 @@
         "time_window_hrs": "24"
     },
     "alert_list": [
-        "modem_wan_connected"
-    ]
+        "modem_wan_connected",
+        "modem_wan_disconnected"
+    ],
+    "inputs_nc": {
+        "metrics": "alerts",
+        "limit": "5",
+        "out_file": "nc_alerts_update"
+    }
 }
