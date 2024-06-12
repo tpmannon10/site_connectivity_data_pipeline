@@ -4,7 +4,7 @@ from dateutil import tz
 
 # convert the alert detected time from UTC timestamp to PST Unix Time
 def convert_to_unix_time(date_time_str, window):
-    # Remove the portion of the string to the right of the "+" symbol
+    # Remove the portion of the string to the right of the "+" symbol from Netcloud Alert detection timestamp
     date_time_str = date_time_str.split('+')[0]
 
     # Convert the string to a datetime object
@@ -14,7 +14,6 @@ def convert_to_unix_time(date_time_str, window):
     date_time_obj = date_time_obj.replace(tzinfo=tz.gettz('UTC'))
     date_time_obj_pst = date_time_obj.astimezone(tz.gettz('America/Los_Angeles'))
 
-    # Convert the datetime object to Unix time
     unix_time = date_time_obj_pst.timestamp()
 
     time_end = str(unix_time).split('.')[0]
@@ -70,7 +69,6 @@ addl_dict = {
 
 # convert unix time and produce time_start and time_end bounds
 input_dict["time_start"], input_dict["time_end"] = convert_to_unix_time(event_dict["detected_at"], addl_dict["time_window_hrs"])
-
 input_dict["acn"] = event_dict["acn"]
 input_dict["acc"] = event_dict["acc"]
 
