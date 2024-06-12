@@ -40,16 +40,18 @@ def get_metrics(encoded_url):
 
 # parse JSON response
 def parse_json_response(data, parse_dict):
-    parsed_data = {}
+    parsed_data = {"results": []}
     if len(parse_dict['metric_list']) == 0:
         for entry in data['data']['result']:
             new_item = entry[parse_dict['entry']]
         parsed_data[parse_dict['entry']] = new_item
     else:
-        for item in parse_dict['metric_list']:
-            for entry in data['data']['result']:
+        for entry in data['data']['result']:
+            parsed_event = {}
+            for item in parse_dict['metric_list']:
                 new_item = entry[parse_dict['entry']][item]
-            parsed_data[item] = new_item
+                parsed_event[item] = new_item
+            parsed_data['results'].append(parsed_event)
     return parsed_data
 
 # create payload file

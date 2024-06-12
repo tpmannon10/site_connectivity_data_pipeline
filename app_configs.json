@@ -1,0 +1,26 @@
+{
+    "grafana_api_input_keys": {
+        "metrics": "n/a",
+        "parse_profile": "n/a",
+        "acn": "n/a",
+        "acc": "n/a",
+        "time_start": "n/a",
+        "time_end": "n/a",
+        "step": "n/a",
+        "out_file": "n/a"
+    },
+    "grafana_metric_parser_pair": {
+        "cradlepoint_metadata": "cradlepoint_metadata",
+        "cradlepoint_rsrp": "default",
+        "cradlepoint_rsrq": "default",
+        "cradlepoint_sinr": "default",
+        "cradlepoint_signal_strength": "default",
+        "cradlepoint_wan_connected": "default",
+        "cradlepoint_temp": "default"
+    },
+    "grafana_api_addl": {
+        "step": "5m",
+        "out_file": "grafana_metric_",
+        "time_window_hrs": "24"
+    }
+}
