@@ -1,5 +1,5 @@
 {
-    "metrics": "cradlepoint_rsrp",
+    "metrics": "cradlepoint_temp",
     "parse_profile": "default",
     "acn": "0119",
     "acc": "03",

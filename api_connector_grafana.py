@@ -64,26 +64,30 @@ def payload_file_gf(payload, out_file_name, out_file_metric):
         outfile.write(json_object)
     return
 
-# Load environment variables from a .env file
-load_dotenv('secrets.env')
+#main
+def grafana_api_connect():
+    # Load environment variables from a .env file
+    load_dotenv('secrets.env')
 
-# import inputs
-input_dict = json.load(open('inputs.json'))
+    # import inputs
+    input_dict = json.load(open('inputs.json'))
 
-#Retrieve JSON parsing structure based on metric
-parse_dict = json.load(open(input_dict['parse_profile'] + '.json'))
+    #Retrieve JSON parsing structure based on metric
+    parse_dict = json.load(open(input_dict['parse_profile'] + '.json'))
 
-# main
-# build query string + args & urlencode
-metric_string = input_dict['metrics'] + '{' + 'acn_id="' + input_dict['acn'] + '", acc_id="' + input_dict['acc'] + '"}'
-arguments = {'startDate': input_dict['time_start'], 'endDate': input_dict['time_end'], 'step': input_dict['step']}
-encoded_url = encode_url(metric_string, arguments)
+    # main
+    # build query string + args & urlencode
+    metric_string = input_dict['metrics'] + '{' + 'acn_id="' + input_dict['acn'] + '", acc_id="' + input_dict['acc'] + '"}'
+    arguments = {'startDate': input_dict['time_start'], 'endDate': input_dict['time_end'], 'step': input_dict['step']}
+    encoded_url = encode_url(metric_string, arguments)
 
-# send GET resquest to monitoring.powerflex.io
-data = get_metrics(encoded_url)
+    # send GET resquest to monitoring.powerflex.io
+    data = get_metrics(encoded_url)
 
-# # Parse the JSON response
-parsed_data = parse_json_response(data, parse_dict)
+    # # Parse the JSON response
+    parsed_data = parse_json_response(data, parse_dict)
 
-# # Print the parsed data to output json
-payload_file_gf(parsed_data, input_dict["out_file"], input_dict["metrics"])
+    # # Print the parsed data to output json
+    payload_file_gf(parsed_data, input_dict["out_file"], input_dict["metrics"])
+    
+    return
