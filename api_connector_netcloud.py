@@ -97,7 +97,7 @@ def payload_file(parsed_data, out_file_name):
 load_dotenv('secrets_nc.env')
 
 # import inputs
-input_file = json.load(open('inputs_nc.json'))
+input_file = json.load(open('app_configs.json'))
 input_dict = input_file["inputs_nc"]
 
 #Retrieve JSON parsing structure based on metric

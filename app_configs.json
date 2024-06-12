@@ -29,7 +29,7 @@
     ],
     "inputs_nc": {
         "metrics": "alerts",
-        "limit": "5",
+        "limit": "20",
         "out_file": "nc_alerts_update"
     }
 }
