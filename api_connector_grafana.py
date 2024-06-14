@@ -73,7 +73,7 @@ def grafana_api_connect():
     input_dict = json.load(open('inputs.json'))
 
     #Retrieve JSON parsing structure based on metric
-    parse_dict = json.load(open(input_dict['parse_profile'] + '.json'))
+    parse_dict = json.load(open('app_configs.json'))[input_dict['parse_profile']]
 
     # main
     # build query string + args & urlencode

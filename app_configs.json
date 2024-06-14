@@ -16,6 +16,19 @@
             "state_updated_at"
         ]
     },
+    "cradlepoint_metadata_parser": {
+        "entry": "metric",
+        "metric_list": [
+            "carrier",
+            "rf_band",
+            "rf_channel",
+            "cell_id"
+        ]
+    },
+    "default_parser": {
+        "entry": "values",
+        "metric_list": []
+    },
     "grafana_api_input_keys": {
         "metrics": "n/a",
         "parse_profile": "n/a",
@@ -27,13 +40,13 @@
         "out_file": "n/a"
     },
     "grafana_metric_parser_pair": {
-        "cradlepoint_metadata": "cradlepoint_metadata",
-        "cradlepoint_rsrp": "default",
-        "cradlepoint_rsrq": "default",
-        "cradlepoint_sinr": "default",
-        "cradlepoint_signal_strength": "default",
-        "cradlepoint_wan_connected": "default",
-        "cradlepoint_temp": "default"
+        "cradlepoint_metadata": "cradlepoint_metadata_parser",
+        "cradlepoint_rsrp": "default_parser",
+        "cradlepoint_rsrq": "default_parser",
+        "cradlepoint_sinr": "default_parser",
+        "cradlepoint_signal_strength": "default_parser",
+        "cradlepoint_wan_connected": "default_parser",
+        "cradlepoint_temp": "default_parser"
     },
     "grafana_api_addl": {
         "step": "5m",

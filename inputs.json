@@ -1,6 +1,6 @@
 {
     "metrics": "cradlepoint_temp",
-    "parse_profile": "default",
+    "parse_profile": "default_parser",
     "acn": "0119",
     "acc": "03",
     "time_start": "1718042289",

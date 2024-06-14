@@ -1,4 +1,0 @@
-{
-    "entry": "metric",
-    "metric_list": ["carrier", "rf_band", "rf_channel", "cell_id"]
-}
