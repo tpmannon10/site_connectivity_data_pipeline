@@ -101,7 +101,7 @@ input_file = json.load(open('app_configs.json'))
 input_dict = input_file["inputs_nc"]
 
 #Retrieve JSON parsing structure based on metric
-parse_dict = json.load(open(input_dict['metrics'] + '.json'))
+parse_dict = input_file[input_dict['parsing']]
 
 # main
 # build query string + args & urlencode

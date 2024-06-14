@@ -1,4 +1,21 @@
 {
+    "alerts_parsing": {
+        "entry": "data",
+        "metric_list": [
+            "created_at",
+            "created_at_timeuuid",
+            "detected_at",
+            "friendly_info",
+            "type",
+            "router"
+        ],
+        "router_list": [
+            "description",
+            "name",
+            "state",
+            "state_updated_at"
+        ]
+    },
     "grafana_api_input_keys": {
         "metrics": "n/a",
         "parse_profile": "n/a",
@@ -29,7 +46,8 @@
     ],
     "inputs_nc": {
         "metrics": "alerts",
-        "limit": "20",
+        "parsing": "alerts_parsing",
+        "limit": "10",
         "out_file": "nc_alerts_update"
     }
 }
