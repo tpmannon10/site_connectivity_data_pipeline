@@ -40,6 +40,15 @@ def create_metrics_and_alarm_dict(alert_dict, metric_list, time_list):
     return full_alarm_dict
 
 
+def create_full_alert_json(full_alarm_dict, alert_dict):
+    full_alarm_dict["date_time"] = str(datetime.now().isoformat(timespec='seconds'))
+    filename = alert_dict["acn"] + '-' + alert_dict["acc"] + '_' + alert_dict["type"] + '.json'
+    json_object = json.dumps(full_alarm_dict, indent=4)
+    with open(filename, 'w') as outfile:
+        outfile.write(json_object)
+    return
+
+
 alert_dict = {
             "created_at": "2024-06-11T17:58:24.249477+00:00",
             "created_at_timeuuid": "3274f130-281c-11ef-bcba-3674ac214bf2",
@@ -64,3 +73,5 @@ print(time_list)
 
 full_alarm_dict = create_metrics_and_alarm_dict(alert_dict, metric_list, time_list)
 print(json.dumps(full_alarm_dict, indent=4))
+
+create_full_alert_json(full_alarm_dict, alert_dict)
