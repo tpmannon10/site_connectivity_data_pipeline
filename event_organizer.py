@@ -24,6 +24,14 @@ def get_time_metric(time_dict):
     return time_list
 
 
+def create_band_carrier_lists(full_alarm_dict, metric_dict):
+    for label in metric_dict['results'][0].keys():
+        full_alarm_dict[label] = []
+        for selection in metric_dict['results']:
+            full_alarm_dict[label].append(selection[label])
+    return full_alarm_dict
+
+
 def create_metrics_and_alarm_dict(alert_dict, metric_list, time_list):
     full_alarm_dict = {}
     full_alarm_dict["alert_info"] = alert_dict
@@ -31,6 +39,7 @@ def create_metrics_and_alarm_dict(alert_dict, metric_list, time_list):
         metric_dict = json.load(open('grafana_metric_' + metric + '.json'))
         if len(metric_dict['results']) > 0:
             full_alarm_dict["cradlepoint_band_carrier"] = metric_dict['results']
+            full_alarm_dict = create_band_carrier_lists(full_alarm_dict, metric_dict)
         else:
             values = []
             for item in metric_dict['values']:

@@ -33,6 +33,26 @@
             "cell_id": "UNKNOWN"
         }
     ],
+    "carrier": [
+        "T-Mobile",
+        "T-Mobile",
+        "None"
+    ],
+    "rf_band": [
+        "Band 4",
+        "Band 2",
+        "UNKNOWN"
+    ],
+    "rf_channel": [
+        "2300",
+        "675",
+        "UNKNOWN"
+    ],
+    "cell_id": [
+        "90017538 (0x55d8f02)",
+        "90017548 (0x55d8f0c)",
+        "UNKNOWN"
+    ],
     "cradlepoint_rsrp": [
         "-78",
         "-78",
@@ -2042,5 +2062,5 @@
         "2024-06-11T10:50:00",
         "2024-06-11T10:55:00"
     ],
-    "date_time": "2024-06-17T11:12:23"
+    "date_time": "2024-06-17T11:32:23"
 }
