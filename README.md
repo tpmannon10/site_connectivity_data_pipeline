@@ -2,7 +2,8 @@ The intent here is to leverage connectivity metrics available in Grafana combine
 
 This README will be updated soon with more details.
 Diagram for high-level view. Green means the component is completed.
-![Site Connectivity Monitoring Data Pipeline - Page 1 (2)](https://github.com/tpmannon10/site_connectivity_data_pipeline/assets/143134603/cef9656d-3a5b-4b09-b880-406783c06b5f)
+![Site Connectivity Monitoring Data Pipeline - Page 1 (3)](https://github.com/tpmannon10/site_connectivity_data_pipeline/assets/143134603/8c202bbb-c261-4515-a4c2-c8b443cc645c)
+
 
 
 
