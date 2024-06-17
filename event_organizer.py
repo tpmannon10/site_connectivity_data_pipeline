@@ -57,30 +57,10 @@ def create_full_alert_json(full_alarm_dict, alert_dict):
         outfile.write(json_object)
     return
 
-
-alert_dict = {
-            "created_at": "2024-06-11T17:58:24.249477+00:00",
-            "created_at_timeuuid": "3274f130-281c-11ef-bcba-3674ac214bf2",
-            "detected_at": "2024-06-11T17:58:09+00:00",
-            "friendly_info": "The Internal 150M-D (SIM1) mdm on port Internal 1 has connected to the network.",
-            "type": "modem_wan_connected",
-            "router": "https://www.cradlepointecm.com/api/v2/routers/3659485/",
-            "description": "pf-0119-03 Rydell Northridge 010-2190",
-            "name": "IBR600C-41d",
-            "state": "online",
-            "state_updated_at": "2024-06-11T17:58:18.918550+00:00",
-            "acn": "0119",
-            "acc": "03"
-        }
-
-
-metric_list = obtain_metric_list('app_configs.json', 'grafana_metric_parser_pair')
-print(metric_list)
-
-time_list = get_time_metric(json.load(open('grafana_metric_' + metric_list[1] + '.json'))['values'])
-print(time_list)
-
-full_alarm_dict = create_metrics_and_alarm_dict(alert_dict, metric_list, time_list)
-print(json.dumps(full_alarm_dict, indent=4))
-
-create_full_alert_json(full_alarm_dict, alert_dict)
+# main
+def event_organizer_for_power_bi(alert_dict):
+    metric_list = obtain_metric_list('app_configs.json', 'grafana_metric_parser_pair')
+    time_list = get_time_metric(json.load(open('grafana_metric_' + metric_list[1] + '.json'))['values'])
+    full_alarm_dict = create_metrics_and_alarm_dict(alert_dict, metric_list, time_list)
+    create_full_alert_json(full_alarm_dict, alert_dict)
+    return

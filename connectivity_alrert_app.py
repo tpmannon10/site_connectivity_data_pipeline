@@ -2,6 +2,7 @@ from datetime import datetime
 import json
 from event_data_capture import capture_event_data
 from api_connector_grafana import grafana_api_connect
+from event_organizer import event_organizer_for_power_bi
 
 # create the inputs for the grafana event data capture
 def create_input_dict(app_config_dict):
@@ -31,4 +32,4 @@ if len(filtered_alerts["alerts"]) > 0:
             input_dict["parse_profile"] = app_configs["grafana_metric_parser_pair"][metric]
             capture_event_data(alert, input_dict, app_configs["grafana_api_addl"])
             grafana_api_connect()
-            
+        event_organizer_for_power_bi(alert)
