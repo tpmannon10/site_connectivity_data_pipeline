@@ -22,16 +22,18 @@ def filtered_alerts_file(relevant_alerts, out_file_name):
         outfile.write(json_object)
     return
 
-# take in latest alerts
-alerts = open_alerts('nc_alerts_update.json')
+#main
+def filter_netcloud_alerts():
+    # take in latest alerts
+    alerts = open_alerts('nc_alerts_update.json')
 
-# obtain alert filter
-alert_filter = open_alerts('app_configs.json')
+    # obtain alert filter
+    alert_filter = open_alerts('app_configs.json')
 
-# filter out relevant alerts
-relevant_alerts = alert_filtering(alerts, alert_filter)
+    # filter out relevant alerts
+    relevant_alerts = alert_filtering(alerts, alert_filter)
 
-# output filtered alerts list in json file
-filtered_alerts_file(relevant_alerts, 'filtered_alerts')
+    # output filtered alerts list in json file
+    filtered_alerts_file(relevant_alerts, 'filtered_alerts')
 
-
+    return

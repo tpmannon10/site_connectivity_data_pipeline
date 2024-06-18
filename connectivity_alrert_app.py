@@ -1,5 +1,7 @@
 from datetime import datetime
 import json
+from api_connector_netcloud import netcloud_alert_connector
+from connectivity_alert_filter import filter_netcloud_alerts
 from event_data_capture import capture_event_data
 from api_connector_grafana import grafana_api_connect
 from event_organizer import event_organizer_for_power_bi
@@ -17,10 +19,10 @@ def create_input_dict(app_config_dict):
 app_configs = json.load(open('app_configs.json'))
 
 # Kick off the alert query for Netcloud
-
+netcloud_alert_connector()
 
 # filter the results
-
+filter_netcloud_alerts()
 
 # pull in filtered results and initiate grafana queries if necessary
 filtered_alerts = json.load(open('filtered_alerts.json'))

@@ -55,12 +55,14 @@
     },
     "alert_list": [
         "modem_wan_connected",
-        "modem_wan_disconnected"
+        "modem_wan_disconnected",
+        "connection_state",
+        "thermal_exceeds_limit"
     ],
     "inputs_nc": {
         "metrics": "alerts",
         "parsing": "alerts_parsing",
-        "limit": "10",
+        "limit": "500",
         "out_file": "nc_alerts_update"
     }
 }

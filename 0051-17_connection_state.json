@@ -1,0 +1,125 @@
+{
+    "alert_info": {
+        "created_at": "2024-06-18T16:21:11.674379+00:00",
+        "created_at_timeuuid": "c6dcdc6e-2d8e-11ef-98c9-d28990803984",
+        "detected_at": "2024-06-18T16:21:11+00:00",
+        "friendly_info": "The device entered the \"online\" state.",
+        "type": "connection_state",
+        "router": "https://www.cradlepointecm.com/api/v2/routers/4092584/",
+        "description": "pf-0051-17 8980 Villa La Jolla Dr 010-2506 (formerly 7-Scholars drive-north UCSD Theater 010-2274)",
+        "name": "IBR600C-c34",
+        "state": "online",
+        "state_updated_at": "2024-06-18T16:21:11.616771+00:00",
+        "acn": "0051",
+        "acc": "17"
+    },
+    "cradlepoint_band_carrier": [
+        {
+            "carrier": "T-Mobile",
+            "rf_band": "Band 4",
+            "rf_channel": "2050",
+            "cell_id": "22640131 (0x1597603)"
+        },
+        {
+            "carrier": "T-Mobile",
+            "rf_band": "Band 2",
+            "rf_channel": "875",
+            "cell_id": "22640141 (0x159760d)"
+        },
+        {
+            "carrier": "None",
+            "rf_band": "UNKNOWN",
+            "rf_channel": "UNKNOWN",
+            "cell_id": "UNKNOWN"
+        }
+    ],
+    "carrier": [
+        "T-Mobile",
+        "T-Mobile",
+        "None"
+    ],
+    "rf_band": [
+        "Band 4",
+        "Band 2",
+        "UNKNOWN"
+    ],
+    "rf_channel": [
+        "2050",
+        "875",
+        "UNKNOWN"
+    ],
+    "cell_id": [
+        "22640131 (0x1597603)",
+        "22640141 (0x159760d)",
+        "UNKNOWN"
+    ],
+    "cradlepoint_rsrp": [
+        "-73",
+        "-67",
+        "-74",
+        "-76",
+        "-76",
+        "-70",
+        "-69",
+        "-69"
+    ],
+    "cradlepoint_rsrq": [
+        "-10",
+        "-10",
+        "-9",
+        "-7",
+        "-12",
+        "-12",
+        "-8",
+        "-13"
+    ],
+    "cradlepoint_sinr": [
+        "22.6",
+        "28.4",
+        "26.6",
+        "15.4",
+        "20.4",
+        "27.6",
+        "29.8",
+        "27.8"
+    ],
+    "cradlepoint_signal_strength": [
+        "100",
+        "100",
+        "100",
+        "100",
+        "100",
+        "100",
+        "100"
+    ],
+    "cradlepoint_wan_connected": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+    ],
+    "cradlepoint_temp": [
+        "44",
+        "43",
+        "44",
+        "44",
+        "44",
+        "44",
+        "45",
+        "46"
+    ],
+    "timesteps": [
+        "2024-06-18T08:45:00",
+        "2024-06-18T08:50:00",
+        "2024-06-18T08:55:00",
+        "2024-06-18T09:00:00",
+        "2024-06-18T09:05:00",
+        "2024-06-18T09:10:00",
+        "2024-06-18T09:15:00",
+        "2024-06-18T09:20:00"
+    ],
+    "date_time": "2024-06-18T09:29:52"
+}

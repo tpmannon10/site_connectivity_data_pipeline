@@ -3,22 +3,10 @@
         {
             "carrier": "T-Mobile",
             "rf_band": "Band 4",
-            "rf_channel": "2300",
-            "cell_id": "90017538 (0x55d8f02)"
-        },
-        {
-            "carrier": "T-Mobile",
-            "rf_band": "Band 2",
-            "rf_channel": "675",
-            "cell_id": "90017548 (0x55d8f0c)"
-        },
-        {
-            "carrier": "None",
-            "rf_band": "UNKNOWN",
-            "rf_channel": "UNKNOWN",
-            "cell_id": "UNKNOWN"
+            "rf_channel": "2050",
+            "cell_id": "22519555 (0x1579f03)"
         }
     ],
-    "date_time": "2024-06-17T11:38:54",
+    "date_time": "2024-06-18T09:30:18",
     "metric": "cradlepoint_metadata"
 }

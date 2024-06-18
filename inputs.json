@@ -1,10 +1,10 @@
 {
     "metrics": "cradlepoint_temp",
     "parse_profile": "default_parser",
-    "acn": "0119",
-    "acc": "03",
-    "time_start": "1718042289",
-    "time_end": "1718128689",
+    "acn": "0051",
+    "acc": "19",
+    "time_start": "1718638423",
+    "time_end": "1718724823",
     "step": "5m",
     "out_file": "grafana_metric_"
 }

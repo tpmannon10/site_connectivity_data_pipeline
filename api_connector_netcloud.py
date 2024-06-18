@@ -92,35 +92,39 @@ def payload_file(parsed_data, out_file_name):
     with open(filename, 'w') as outfile:
         outfile.write(json_object)
     return
-        
-# Load environment variables from a .env file
-load_dotenv('secrets_nc.env')
 
-# import inputs
-input_file = json.load(open('app_configs.json'))
-input_dict = input_file["inputs_nc"]
+#main
+def netcloud_alert_connector():
+    # Load environment variables from a .env file
+    load_dotenv('secrets_nc.env')
 
-#Retrieve JSON parsing structure based on metric
-parse_dict = input_file[input_dict['parsing']]
+    # import inputs
+    input_file = json.load(open('app_configs.json'))
+    input_dict = input_file["inputs_nc"]
 
-# main
-# build query string + args & urlencode
-metric_string = input_dict['metrics'] + '/?limit=' + input_dict['limit']
+    #Retrieve JSON parsing structure based on metric
+    parse_dict = input_file[input_dict['parsing']]
 
-# send GET resquest to monitoring.powerflex.io
-data = get_metrics(metric_string)
+    # main
+    # build query string + args & urlencode
+    metric_string = input_dict['metrics'] + '/?limit=' + input_dict['limit']
 
-# # Parse the JSON response
-parsed_data = parse_json_response_nc(data, parse_dict)
+    # send GET resquest to monitoring.powerflex.io
+    data = get_metrics(metric_string)
 
-# obtain router-specific urls
-router_urls = pull_router_url(parsed_data)
+    # # Parse the JSON response
+    parsed_data = parse_json_response_nc(data, parse_dict)
 
-# go get the router specifics
-router_details = grab_router_details(router_urls, parse_dict)
+    # obtain router-specific urls
+    router_urls = pull_router_url(parsed_data)
 
-# combine alert info with router-specific info
-parsed_data = combine_alert_with_router(parsed_data, router_details)
+    # go get the router specifics
+    router_details = grab_router_details(router_urls, parse_dict)
 
-# print result to output json
-payload_file(parsed_data, input_dict["out_file"])
+    # combine alert info with router-specific info
+    parsed_data = combine_alert_with_router(parsed_data, router_details)
+
+    # print result to output json
+    payload_file(parsed_data, input_dict["out_file"])
+
+    return
