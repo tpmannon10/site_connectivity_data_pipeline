@@ -87,7 +87,7 @@ def payload_dict(parsed_data):
 # create payload file
 def payload_file(parsed_data, out_file_name):
     payload = payload_dict(parsed_data)
-    filename = out_file_name + '.json'
+    filename = os.getcwd() + out_file_name + '.json'
     json_object = json.dumps(payload, indent=4)
     with open(filename, 'w') as outfile:
         outfile.write(json_object)

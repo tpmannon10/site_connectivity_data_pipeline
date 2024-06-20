@@ -50,7 +50,7 @@
     },
     "grafana_api_addl": {
         "step": "5m",
-        "out_file": "grafana_metric_",
+        "out_file": "/grafana_outputs/grafana_metric_",
         "time_window_hrs": "24"
     },
     "alert_list": [
@@ -63,6 +63,6 @@
         "metrics": "alerts",
         "parsing": "alerts_parsing",
         "limit": "500",
-        "out_file": "nc_alerts_update"
+        "out_file": "/alert_outputs/nc_alerts_update"
     }
 }

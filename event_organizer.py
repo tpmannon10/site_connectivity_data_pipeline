@@ -1,5 +1,6 @@
 from datetime import datetime
 import json
+import os
 # import pandas as pd
 
 # take in grafana metrics & info for a given alert, convert the data into something ingestible by PowerBI then send to PowerBI dashboard
@@ -36,10 +37,10 @@ def create_metrics_and_alarm_dict(alert_dict, metric_list, time_list):
     full_alarm_dict = {}
     full_alarm_dict["alert_info"] = alert_dict
     for metric in metric_list:
-        metric_dict = json.load(open('grafana_metric_' + metric + '.json'))
+        metric_dict = json.load(open(os.getcwd() + '/grafana_outputs/grafana_metric_' + metric + '.json'))
         if len(metric_dict['results']) > 0:
             full_alarm_dict["cradlepoint_band_carrier"] = metric_dict['results']
-            full_alarm_dict = create_band_carrier_lists(full_alarm_dict, metric_dict)
+            # full_alarm_dict = create_band_carrier_lists(full_alarm_dict, metric_dict)
         else:
             values = []
             for item in metric_dict['values']:
@@ -51,7 +52,7 @@ def create_metrics_and_alarm_dict(alert_dict, metric_list, time_list):
 
 def create_full_alert_json(full_alarm_dict, alert_dict):
     full_alarm_dict["date_time"] = str(datetime.now().isoformat(timespec='seconds'))
-    filename = alert_dict["acn"] + '-' + alert_dict["acc"] + '_' + alert_dict["type"] + '.json'
+    filename = os.getcwd() + '/event_outputs/' + alert_dict["acn"] + '-' + alert_dict["acc"] + '_' + alert_dict["type"] + '.json'
     json_object = json.dumps(full_alarm_dict, indent=4)
     with open(filename, 'w') as outfile:
         outfile.write(json_object)
@@ -60,7 +61,7 @@ def create_full_alert_json(full_alarm_dict, alert_dict):
 # main
 def event_organizer_for_power_bi(alert_dict):
     metric_list = obtain_metric_list('app_configs.json', 'grafana_metric_parser_pair')
-    time_list = get_time_metric(json.load(open('grafana_metric_' + metric_list[1] + '.json'))['values'])
+    time_list = get_time_metric(json.load(open(os.getcwd() + '/grafana_outputs/grafana_metric_' + metric_list[1] + '.json'))['values'])
     full_alarm_dict = create_metrics_and_alarm_dict(alert_dict, metric_list, time_list)
     create_full_alert_json(full_alarm_dict, alert_dict)
     return

@@ -1,5 +1,6 @@
 from datetime import datetime
 import json
+import os
 from api_connector_netcloud import netcloud_alert_connector
 from connectivity_alert_filter import filter_netcloud_alerts
 from event_data_capture import capture_event_data
@@ -25,7 +26,7 @@ netcloud_alert_connector()
 filter_netcloud_alerts()
 
 # pull in filtered results and initiate grafana queries if necessary
-filtered_alerts = json.load(open('filtered_alerts.json'))
+filtered_alerts = json.load(open(os.getcwd() + '/alert_outputs/' + 'filtered_alerts.json'))
 if len(filtered_alerts["alerts"]) > 0:
     input_dict = create_input_dict(app_configs)
     for alert in filtered_alerts["alerts"]:

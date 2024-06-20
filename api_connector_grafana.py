@@ -42,23 +42,29 @@ def get_metrics(encoded_url):
 def parse_json_response(data, parse_dict):
     parsed_data = {"results": []}
     if len(parse_dict['metric_list']) == 0:
-        for entry in data['data']['result']:
-            new_item = entry[parse_dict['entry']]
-        parsed_data[parse_dict['entry']] = new_item
+        if len(data['data']['result']) == 0:
+            parsed_data[parse_dict['entry']] = []
+        else:
+            for entry in data['data']['result']:
+                new_item = entry[parse_dict['entry']]
+                parsed_data[parse_dict['entry']] = new_item
     else:
-        for entry in data['data']['result']:
-            parsed_event = {}
-            for item in parse_dict['metric_list']:
-                new_item = entry[parse_dict['entry']][item]
-                parsed_event[item] = new_item
-            parsed_data['results'].append(parsed_event)
+        if len(data['data']['result']) > 0:
+            for entry in data['data']['result']:
+                parsed_event = {}
+                for item in parse_dict['metric_list']:
+                    new_item = entry[parse_dict['entry']][item]
+                    parsed_event[item] = new_item
+                parsed_data['results'].append(parsed_event)
+        else:
+            parsed_data[parse_dict['entry']] = []
     return parsed_data
 
 # create payload file
 def payload_file_gf(payload, out_file_name, out_file_metric):
     payload["date_time"] = str(datetime.now().isoformat(timespec='seconds'))
     payload["metric"] = out_file_metric
-    filename = out_file_name + out_file_metric + '.json'
+    filename = os.getcwd() + out_file_name + out_file_metric + '.json'
     json_object = json.dumps(payload, indent=4)
     with open(filename, 'w') as outfile:
         outfile.write(json_object)
