@@ -33,20 +33,24 @@ def create_band_carrier_lists(full_alarm_dict, metric_dict):
     return full_alarm_dict
 
 
-def create_metrics_and_alarm_dict(alert_dict, metric_list, time_list):
+def create_metrics_and_alarm_dict(alert_dict, metric_list, time_list):  # I'm so sorry
     full_alarm_dict = {}
     full_alarm_dict["alert_info"] = alert_dict
+    full_alarm_dict["grafana_metrics"] = []
+    metric_timeslice = {"timestep": ''}
+    for label in metric_list:
+        if label != "cradlepoint_metadata":
+            metric_timeslice[label] = ''
+    for time in time_list:
+        metric_timeslice["timestep"] = time
+        full_alarm_dict["grafana_metrics"].append(metric_timeslice.copy())
     for metric in metric_list:
         metric_dict = json.load(open(os.getcwd() + '/grafana_outputs/grafana_metric_' + metric + '.json'))
         if len(metric_dict['results']) > 0:
             full_alarm_dict["cradlepoint_band_carrier"] = metric_dict['results']
-            # full_alarm_dict = create_band_carrier_lists(full_alarm_dict, metric_dict)
         else:
-            values = []
-            for item in metric_dict['values']:
-                values.append(item[1])
-            full_alarm_dict[metric_dict["metric"]] = values
-    full_alarm_dict["timesteps"] = time_list
+            for item, value in zip(full_alarm_dict["grafana_metrics"], metric_dict["values"]):
+                item[metric] = value[1]
     return full_alarm_dict
 
 
@@ -65,3 +69,4 @@ def event_organizer_for_power_bi(alert_dict):
     full_alarm_dict = create_metrics_and_alarm_dict(alert_dict, metric_list, time_list)
     create_full_alert_json(full_alarm_dict, alert_dict)
     return
+
