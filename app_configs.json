@@ -62,7 +62,7 @@
     "inputs_nc": {
         "metrics": "alerts",
         "parsing": "alerts_parsing",
-        "limit": "500",
+        "limit": "100",
         "out_file": "/alert_outputs/nc_alerts_update"
     }
 }

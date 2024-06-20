@@ -56,6 +56,7 @@ def parse_json_response(data, parse_dict):
                     new_item = entry[parse_dict['entry']][item]
                     parsed_event[item] = new_item
                 parsed_data['results'].append(parsed_event)
+                parsed_data['values'] = []
         else:
             parsed_data[parse_dict['entry']] = []
     return parsed_data

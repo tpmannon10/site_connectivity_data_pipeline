@@ -4,39 +4,16 @@
             "carrier": "T-Mobile",
             "rf_band": "Band 4",
             "rf_channel": "2300",
-            "cell_id": "21299457 (0x1450101)"
+            "cell_id": "14454018 (0xdc8d02)"
         },
         {
             "carrier": "T-Mobile",
             "rf_band": "Band 2",
-            "rf_channel": "650",
-            "cell_id": "21299463 (0x1450107)"
-        },
-        {
-            "carrier": "T-Mobile",
-            "rf_band": "Band 2",
-            "rf_channel": "650",
-            "cell_id": "21424905 (0x146eb09)"
-        },
-        {
-            "carrier": "T-Mobile",
-            "rf_band": "Band 4",
-            "rf_channel": "2300",
-            "cell_id": "89886210 (0x55b8e02)"
-        },
-        {
-            "carrier": "T-Mobile",
-            "rf_band": "Band 2",
-            "rf_channel": "650",
-            "cell_id": "89886220 (0x55b8e0c)"
-        },
-        {
-            "carrier": "None",
-            "rf_band": "UNKNOWN",
-            "rf_channel": "UNKNOWN",
-            "cell_id": "UNKNOWN"
+            "rf_channel": "675",
+            "cell_id": "14454024 (0xdc8d08)"
         }
     ],
-    "date_time": "2024-06-20T12:49:22",
+    "values": [],
+    "date_time": "2024-06-20T14:04:49",
     "metric": "cradlepoint_metadata"
 }
